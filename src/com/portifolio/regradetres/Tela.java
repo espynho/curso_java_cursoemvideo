@@ -16,6 +16,7 @@ public class Tela extends javax.swing.JFrame {
      */
     public Tela() {
         initComponents();
+
     }
 
     /**
@@ -34,13 +35,11 @@ public class Tela extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnResposta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtN3.setEditable(false);
-        txtN3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtN3.setText("x");
+        txtN3.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         jLabel1.setText("Se");
 
@@ -48,10 +47,10 @@ public class Tela extends javax.swing.JFrame {
 
         jLabel3.setText("Então");
 
-        jButton1.setText("Resposta");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnResposta.setText("Resposta");
+        btnResposta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRespostaActionPerformed(evt);
             }
         });
 
@@ -78,7 +77,7 @@ public class Tela extends javax.swing.JFrame {
                                     .addComponent(txtN1)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(73, 73, 73)
-                        .addComponent(jButton1)))
+                        .addComponent(btnResposta)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -98,23 +97,66 @@ public class Tela extends javax.swing.JFrame {
                     .addComponent(txtN2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtN3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
-                .addComponent(jButton1)
+                .addComponent(btnResposta)
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void btnRespostaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRespostaActionPerformed
+        // entrada dos dados digitados
+        /*
         int n0 = Integer.parseInt(txtN0.getText());
         int n1 = Integer.parseInt(txtN1.getText());
         int n2 = Integer.parseInt(txtN2.getText());
-        int n3;
-        n3 = n2 * n1 / n0;
-        txtN3.setText(Integer.toString(n3));
-    }//GEN-LAST:event_jButton1ActionPerformed
+        int n3 = Integer.parseInt(txtN3.getText());
+         */
+        if (txtN0.getText().isEmpty() || txtN1.getText().isEmpty()) {
+            System.out.println("brancos");
+        } else {
 
+            if (txtN2.getText().isEmpty() && txtN3.getText().isEmpty()) {
+                System.out.println("i_brancos");
+            } else {
+                byte formula = 0;
+
+                if (txtN2.getText().isEmpty()) {
+                    formula = 1;
+                }
+                if (txtN3.getText().isEmpty()) {
+                    formula = 2;
+                }
+                int n0 = Integer.parseInt(txtN0.getText());
+                int n1 = Integer.parseInt(txtN1.getText());
+
+                switch (formula) {
+
+                    case 3:
+                        System.out.println("Campos 0,1 vazios");
+
+                    case 1:
+                        System.out.println("n2_vazia");
+                        int n3 = Integer.parseInt(txtN3.getText());
+                        int n2 = n3 * n0 / n1;
+                        txtN2.setText(Integer.toString(n2));
+                        break;
+                    case 2:
+                        System.out.println("n3_vazia");
+                        int n2a = Integer.parseInt(txtN2.getText());
+                        int n3a = n2a * n1 / n0;
+                        txtN3.setText(Integer.toString(n3a));
+                        break;
+
+                }
+
+            }
+        }
+    }//GEN-LAST:event_btnRespostaActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
     /**
      * @param args the command line arguments
      */
@@ -151,7 +193,7 @@ public class Tela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnResposta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
