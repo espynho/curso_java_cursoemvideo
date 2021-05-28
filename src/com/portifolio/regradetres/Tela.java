@@ -112,6 +112,10 @@ public class Tela extends javax.swing.JFrame {
         int n2 = Integer.parseInt(txtN2.getText());
         int n3 = Integer.parseInt(txtN3.getText());
          */
+        /** 
+         * Houve a mudança de int para float por conta 
+         * do arredondamento que o int faz
+         */
         byte formula = 0;
         if (txtN0.getText().isEmpty() || txtN1.getText().isEmpty()) {
             System.out.println("brancos");
