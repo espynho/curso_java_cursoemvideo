@@ -38,6 +38,11 @@ public class TelaSoma extends javax.swing.JFrame {
         jLabel1.setText("+");
 
         btnSoma.setText("=");
+        btnSoma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSomaActionPerformed(evt);
+            }
+        });
 
         lblResultado.setText("0");
 
@@ -73,6 +78,13 @@ public class TelaSoma extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSomaActionPerformed
+        int n1 = Integer.parseInt(txtN1.getText()); // conversão de String txtN1 para int
+        int n2 = Integer.parseInt(txtN2.getText());
+        int soma = n1 + n2 ;
+        lblResultado.setText(Integer.toString(soma));
+    }//GEN-LAST:event_btnSomaActionPerformed
 
     /**
      * @param args the command line arguments
