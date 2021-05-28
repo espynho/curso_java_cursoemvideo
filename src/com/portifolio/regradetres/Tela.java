@@ -112,6 +112,7 @@ public class Tela extends javax.swing.JFrame {
         int n2 = Integer.parseInt(txtN2.getText());
         int n3 = Integer.parseInt(txtN3.getText());
          */
+        byte formula = 0;
         if (txtN0.getText().isEmpty() || txtN1.getText().isEmpty()) {
             System.out.println("brancos");
         } else {
@@ -119,35 +120,30 @@ public class Tela extends javax.swing.JFrame {
             if (txtN2.getText().isEmpty() && txtN3.getText().isEmpty()) {
                 System.out.println("i_brancos");
             } else {
-                byte formula = 0;
-
                 if (txtN2.getText().isEmpty()) {
                     formula = 1;
                 }
                 if (txtN3.getText().isEmpty()) {
                     formula = 2;
                 }
-                int n0 = Integer.parseInt(txtN0.getText());
-                int n1 = Integer.parseInt(txtN1.getText());
-
+                float n0 = Float.parseFloat(txtN0.getText());
+                float n1 = Float.parseFloat(txtN1.getText());
                 switch (formula) {
-
                     case 3:
                         System.out.println("Campos 0,1 vazios");
 
                     case 1:
                         System.out.println("n2_vazia");
-                        int n3 = Integer.parseInt(txtN3.getText());
-                        int n2 = n3 * n0 / n1;
-                        txtN2.setText(Integer.toString(n2));
+                        float n3 = Float.parseFloat(txtN3.getText());
+                        float n2 = n3 * n0 / n1;
+                        txtN2.setText(Float.toString(n2));
                         break;
                     case 2:
                         System.out.println("n3_vazia");
-                        int n2a = Integer.parseInt(txtN2.getText());
-                        int n3a = n2a * n1 / n0;
-                        txtN3.setText(Integer.toString(n3a));
-                        break;
-
+                        float n2a = Float.parseFloat(txtN2.getText());
+                        float n3a = n2a * n1 / n0;
+                        txtN3.setText(Float.toString(n3a));
+                        break; 
                 }
 
             }
